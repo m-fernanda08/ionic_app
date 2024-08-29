@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Agenda</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <button ion-button icon-start block (click)="showPrompt()">
+    <ion-icon name="add"></ion-icon>
+    Adicionar Agendamento
+  </button>
+
+  <ion-list *ngIf="agenda.length > 0">
+    <ion-item *ngFor="let item of agenda">
+      <ion-avatar item-start>
+        <!-- Adicione um ícone ou imagem se necessário -->
+      </ion-avatar>
+      <h2>Nome: {{item.nome}}</h2>
+      <h5>Idade: {{item.idade}} anos</h5>
+      <p>Triagem: {{item.triagem}}</p>
+      <p>Telefone: {{item.telefone}}</p>
+      <p>Data e Horário: {{item.dataHora}}</p>
+      <button ion-button clear item-end (click)="showConfirm(item)">Excluir</button>
+    </ion-item>
+  </ion-list>
+
+  <p *ngIf="agenda.length === 0">Nenhum agendamento cadastrado.</p>
+</ion-content>

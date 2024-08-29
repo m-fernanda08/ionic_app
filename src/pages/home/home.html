@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>ProntuárioPRO</ion-title>
+  </ion-navbar>
+</ion-header>
+  
+  <ion-content padding>
+  
+    <button ion-button icon-start block (click)="showPrompt()">
+    <ion-icon name="add"></ion-icon>
+    Adicionar Paciente
+    </button>
+    
+    <ion-list *ngIf="pacientes.length > 0">
+      <ion-item *ngFor="let item of pacientes">
+        <ion-avatar item-start>
+          <img src="data:image/jpeg;base64,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">
+        </ion-avatar>
+        <h2>Paciente: {{item.nome}}</h2>
+        <h5>Data de nascimento: {{item.data_nasc}}</h5>
+        <p>CPF: {{item.cpf}} | Telefone: {{item.telefone}}</p>
+        <p>Endereço: {{item.endereco}}</p>
+        <button ion-button clear item-end color="danger" (click)="showConfirm(item)">Excluir</button>
+      </ion-item>
+    </ion-list>
+
+  
+  <p *ngIf="pacientes.length === 0">Nenhum paciente cadastrado.</p>
+
+</ion-content>
